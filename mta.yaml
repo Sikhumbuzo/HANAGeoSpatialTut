@@ -1,0 +1,8 @@
+_schema-version: '2.0'
+ID: HANAGeoSpatialTut
+version: 0.0.1
+
+modules:
+ - name: geoui
+   type: html5
+   path: geoui
