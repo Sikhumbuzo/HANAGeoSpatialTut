@@ -14,6 +14,11 @@ modules:
     - name: hdi-container
 
 
+
+ - name: geojs
+   type: nodejs
+   path: geojs
+
 resources:
  - name: hdi-container
    properties:

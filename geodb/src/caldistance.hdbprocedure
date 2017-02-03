@@ -1,0 +1,12 @@
+PROCEDURE "HANAGeoSpatialTut.geodb::caldistance" (In OriginCity nvarchar(50), In DestinationCity nvarchar(50), In UnitOfMeasure nvarchar(50) )
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+	READS SQL DATA AS
+BEGIN
+	DECLARE STRING_STR varchar(2000); 
+	STRING_STR :=  'select A.CITY_NAME AS "Origin City",B.CITY_NAME AS "Destination City", A.CITY_COORDINATES.ST_Distance(B.CITY_COORDINATES,' || '''' || :UnitOfMeasure || '''' || ') AS "Distance" 
+	             from CITY A,CITY B where A.CITY_NAME = ' || '''' || :OriginCity || '''' || ' and B.CITY_NAME = ' || '''' ||  :DestinationCity || '''';
+	
+
+END
