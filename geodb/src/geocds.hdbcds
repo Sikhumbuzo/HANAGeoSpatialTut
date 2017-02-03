@@ -1,0 +1,9 @@
+namespace "HANAGeoSpatialTut"."geodb";
+
+context geocds {
+   entity geodata {
+      key GEOID            : Integer;
+          CITY_NAME        : String(20);
+          CITY_COORDINATES : hana.ST_GEOMETRY(4326);
+   }
+};
