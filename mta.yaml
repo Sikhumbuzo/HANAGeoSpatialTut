@@ -18,7 +18,14 @@ modules:
  - name: geojs
    type: nodejs
    path: geojs
-
+   requires:
+     - name: geodb
+     - name: hdi-container
+   provides:
+     - name: geojs_api
+       properties:
+         service_url: ${default-url}
+   
 resources:
  - name: hdi-container
    properties:

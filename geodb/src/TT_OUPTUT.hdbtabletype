@@ -1,0 +1,2 @@
+TYPE "HANAGeoSpatialTut.geodb::geocds.tt_output" AS TABLE(
+	"ORIG_CITY" nvarchar(50), "DEST_CITY" nvarchar(50), "DISTANCE" decimal);
