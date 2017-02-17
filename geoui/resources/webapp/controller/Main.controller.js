@@ -1,10 +1,18 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/Device"
+], function(Controller, Device) {
 	"use strict";
 
 	return Controller.extend("com.sap.geo.ui.controller.Main", {
 			onInit: function(){
+			
+			var oModel = new sap.ui.model.json.JSONModel("https://vhhan200.pro.coil:51041/getPoints.xsjs");
+			this.getView().setModel(oModel, "locations");
+			
+			var oDeviceModel = new sap.ui.model.json.JSONModel(Device);
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			this.getView().setModel(oDeviceModel, "device");
 			
 			var oGeoMap = this.getView().byId("vbi");
 			var oMapConfig = {
