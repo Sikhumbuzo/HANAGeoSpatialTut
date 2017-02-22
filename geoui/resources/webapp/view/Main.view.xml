@@ -5,12 +5,7 @@
 	<l:FixFlex class="fixFlexVertical">
 		<l:flexContent>
 			<vbm:GeoMap id="vbi" width="100%" xmlns:l="sap.ui.layout" height="100%" 
-				openWindow="onOpenDetail" closeWindow="onCloseDetail" zoomChanged="onZoomChanged">
-				
-					<vbm:geoJsonLayers srcURL="https://vhhan200.pro.coil:51041/getPoints.xsjs" defaultLineWidth="5" defaultBorderColor="#ff0000" defaultFillColor="#ff0000">
-						
-					</vbm:geoJsonLayers>
-				
+				openWindow="onOpenDetail" zoomlevel="4" centerPosition="-96.503906;38.68551" closeWindow="onCloseDetail" zoomChanged="onZoomChanged">
 			</vbm:GeoMap>
 		</l:flexContent>
 	</l:FixFlex>
