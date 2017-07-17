@@ -1,0 +1,26 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "HANAGeoSpatialTut.geodb::geocds.geodata",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "HANAGeoSpatialTut.geodb::geo.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+			"import_columns": ["GEOID",
+			"CITY_NAME",
+			"CITY_COORDINATES"
+			]
+		},
+		"column_mappings": {
+			"GEOID": 1,
+			"CITY_NAME": 2,
+			"CITY_COORDINATES": 3
+		}
+	}]
+}

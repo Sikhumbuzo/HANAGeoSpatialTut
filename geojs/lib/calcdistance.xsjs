@@ -8,7 +8,7 @@ var distance = $.request.parameters.get("distance");
  
 try{
 	//Load procedure
-	var fnCalculateDistance = connection.loadProcedure("0CT51OO89LZIPY9I_HANAGEOSPATIALTUT_HDI_CONTAINER", "HANAGeoSpatialTut.geodb::caldistance");
+	var fnCalculateDistance = connection.loadProcedure("NKQBZTGHGBBEXCVE_HANAGEOSPATIALTUT_HDI_CONTAINER", "HANAGeoSpatialTut.geodb::caldistance");
 	
 	//Execute procedure and get output
 	results = fnCalculateDistance(origCity, desCity, distance);

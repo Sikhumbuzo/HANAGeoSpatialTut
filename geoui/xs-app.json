@@ -1,8 +1,22 @@
 {
-	"welcomeFile": "webapp/index.html",
-	"authenticationMethod": "none",
-	"routes": [{
-		"source": "^/getPoints.xsjs/.*$",
-		"destination": "geojs_be"
-	}]
+  "welcomeFile": "webapp/index.html",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/getPoints.xsjs/.*$",
+      "destination": "geojs_be"
+    },
+    {
+      "source": "^/webapp/(.*)",
+      "localDir": "resources",
+      "replace": {
+        "pathSuffixes": [
+          "index.html"
+        ],
+        "vars": [
+          "sapui5url"
+        ]
+      }
+    }
+  ]
 }

@@ -50,7 +50,7 @@ sap.ui.define([
 		},
 		addFeatureCollection : function (){
 			var gJson = new sap.ui.vbm.GeoJsonLayer({
-				srcURL: "https://vhhan200.pro.coil:51041/getPoints.xsjs",
+				srcURL: "https://vhhan200.pro.coil:51037/getPoints.xsjs",
 				items: {
 					path: "/Features",
 					template: new sap.ui.vbm.Feature(

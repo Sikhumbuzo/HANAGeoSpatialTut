@@ -6,24 +6,31 @@ modules:
  - name: geoui
    type: html5
    path: geoui
+   parameters:
+      memory: 256M
    requires:
      - name: geojs_api
        group: destinations
        properties:
          name: geojs_be
          url: ~{service_url}
+     - name: sapui5-provider
+       properties:
+         sapui5url: '~{url}'
 
  - name: geodb
    type: hdb
    path: geodb
+   parameters:
+      memory: 128M
    requires:
     - name: hdi-container
-
-
-
+    
  - name: geojs
    type: nodejs
    path: geojs
+   parameters:
+      memory: 128M
    requires:
      - name: geodb
      - name: hdi-container
@@ -34,6 +41,15 @@ modules:
    
 resources:
  - name: hdi-container
+   parameters:
+     service: hanatrial
+     service-plan: hdi-shared
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
+   
+
+ - name: sapui5-provider
+   properties:
+     url: "https://sapui5.hana.ondemand.com"
+   
