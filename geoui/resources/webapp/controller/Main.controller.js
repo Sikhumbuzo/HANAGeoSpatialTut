@@ -5,8 +5,8 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("com.sap.geo.ui.controller.Main", {
-			onInit: function(){
-			
+		onInit: function() {
+
 			/*var oModel = new sap.ui.model.json.JSONModel();
 			oModel.setData(this.oData);
 			this.getView().setModel(oModel);
@@ -15,7 +15,7 @@ sap.ui.define([
 			oDeviceModel.setDefaultBindingMode("OneWay");
 			this.getView().setModel(oDeviceModel, "device");
 			*/
-			
+
 			var oGeoMap = this.getView().byId("vbi");
 			oGeoMap.addGeoJsonLayer(this.addFeatureCollection());
 			var oMapConfig = {
@@ -48,21 +48,19 @@ sap.ui.define([
 			oGeoMap.setMapConfiguration(oMapConfig);
 			oGeoMap.setRefMapLayerStack("DEFAULT");
 		},
-		addFeatureCollection : function (){
+		addFeatureCollection: function() {
 			var gJson = new sap.ui.vbm.GeoJsonLayer({
-				srcURL: "https://vhhan200.pro.coil:51037/getPoints.xsjs",
+				srcURL: "https://wdfl00289158a.emea.global.corp.sap:51041/getPoints.xsjs",
 				items: {
 					path: "/Features",
-					template: new sap.ui.vbm.Feature(
-													{
-														color: "rgba(182,217,87,0.6)",
-														tooltip: "Testing"
-													}
-						)
+					template: new sap.ui.vbm.Feature({
+						color: "rgba(182,217,87,0.6)",
+						tooltip: "Testing"
+					})
 				}
 			});
 			return gJson;
 		}
-		
+
 	});
 });

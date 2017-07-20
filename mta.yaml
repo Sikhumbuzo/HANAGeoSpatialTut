@@ -9,11 +9,13 @@ modules:
    parameters:
       memory: 256M
    requires:
+     - name: geo-uaa
      - name: geojs_api
        group: destinations
        properties:
-         name: geojs_be
+         name: geojs_api
          url: ~{service_url}
+         forwardAuthToken: true
      - name: sapui5-provider
        properties:
          sapui5url: '~{url}'
@@ -34,21 +36,21 @@ modules:
    requires:
      - name: geodb
      - name: hdi-container
+     - name: geo-uaa
    provides:
      - name: geojs_api
        properties:
          service_url: ${default-url}
-   
+         
 resources:
  - name: hdi-container
-   parameters:
-     service: hanatrial
-     service-plan: hdi-shared
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
    
-
+ - name: geo-uaa
+   type: com.sap.xs.uaa
+   
  - name: sapui5-provider
    properties:
      url: "https://sapui5.hana.ondemand.com"

@@ -1,22 +1,29 @@
 {
-  "welcomeFile": "webapp/index.html",
-  "authenticationMethod": "none",
-  "routes": [
-    {
-      "source": "^/getPoints.xsjs/.*$",
-      "destination": "geojs_be"
-    },
-    {
-      "source": "^/webapp/(.*)",
-      "localDir": "resources",
-      "replace": {
-        "pathSuffixes": [
-          "index.html"
-        ],
-        "vars": [
-          "sapui5url"
-        ]
-      }
-    }
-  ]
+	"welcomeFile": "webapp/index.html",
+	"authenticationMethod": "route",
+	"websockets": {
+		"enabled": true
+	},
+	"routes": [{
+		"source": "(.*)(.xsjs)",
+		"destination": "geojs_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "/node/(.*)",
+		"destination": "geojs_api",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "^/webapp/(.*)",
+		"localDir": "resources",
+		"replace": {
+			"pathSuffixes": [
+				"index.html"
+			],
+			"vars": [
+				"sapui5url"
+			]
+		}
+	}]
 }

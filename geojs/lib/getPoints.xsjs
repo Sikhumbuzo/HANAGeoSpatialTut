@@ -3,7 +3,7 @@ try{
 	var connection = $.hdb.getConnection();
 	//var preStatement = connection.prepareStatement('SELECT "CITY_COORDINATES".ST_AsGeoJSON() as "LOCATION" FROM "0CT51OO89LZIPY9I_HANAGEOSPATIALTUT_HDI_CONTAINER"."HANAGeoSpatialTut.geodb::geocds.geodata"');
 	var query = 'SELECT "CITY_COORDINATES".ST_AsGeoJson() AS "LOCATION" ' +
-	'FROM "NKQBZTGHGBBEXCVE_HANAGEOSPATIALTUT_HDI_CONTAINER"."HANAGeoSpatialTut.geodb::geocds.geodata"';
+	'FROM "HANAGEOSPATIALTUT_HDI_CONTAINER_1"."HANAGeoSpatialTut.geodb::geocds.geodata"';
 	//var results = preStatement.executeQuery();
 	var results = connection.executeQuery(query);
 	var response = {type: "FeatureCollection"};

@@ -4,9 +4,14 @@
 var xsjs  = require("sap-xsjs");
 var xsenv = require("sap-xsenv");
 var port  = process.env.PORT || 3000;
+var server = require("http").createServer();
+var express = require("express");
+var node = require("./getPoints_node");
 
+
+var app = express();
 var options = {
-	anonymous : true, // remove to authenticate calls
+	//anonymous : true, // remove to authenticate calls
 	redirectUrl : "/getPoints.xsjs"
 };
 
@@ -23,8 +28,12 @@ try {
 } catch (err) {
 	console.log("[WARN]", err.message);
 }
-
+app.use("/node", node(options.hana));
 // start server
-xsjs(options).listen(port);
+var xsjsApp = xsjs(options);
+app.use(xsjsApp);
 
-console.log("Server listening on port %d", port);
+server.on("request", app);
+server.listen(port, function(){
+	console.log("HTTP Server: " + server.address().port );
+});
